@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Anurag Bheemani, ML Engineer</title>
+    <script>
+      // GitHub Pages has no server-side router, so a direct load or
+      // refresh on a client-side route (e.g. /projects/orieon) 404s.
+      // This redirects to index.html, encoding the original path into
+      // a query string that main.tsx decodes back into the real URL
+      // before React Router mounts.
+      var path = location.pathname + location.search + location.hash
+      location.replace('/?redirect=' + encodeURIComponent(path))
+    </script>
+  </head>
+  <body></body>
+</html>
