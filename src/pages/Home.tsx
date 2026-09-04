@@ -10,6 +10,8 @@ import { Reveal } from '@/components/animations/Reveal'
 import { RollingTitle } from '@/components/animations/RollingTitle'
 import { HeroThesis } from '@/components/sections/HeroThesis'
 import { HeroCapability } from '@/components/sections/HeroCapability'
+import { ToolsTouched } from '@/components/sections/ToolsTouched'
+import { WorkedInMarquee } from '@/components/sections/WorkedInMarquee'
 import { cn } from '@/lib/cn'
 import { ROUTES } from '@/constants/routes'
 import { PROJECTS } from '@/data/projects'
@@ -21,6 +23,7 @@ import hexagonPattern from '@/assets/images/hexagon-pattern.jpg'
  */
 const SELECTED_SLUGS = [
   'orieon',
+  'paper-tail',
   'bear-behavior-recognition',
   'production-rag-platform',
   'industrial-robot-behavior-cloning',
@@ -73,9 +76,9 @@ export function Home() {
               lines={[
                 'I build AI systems',
                 <span key="em" className="text-text-muted font-normal">
-                  that ship,
+                  for the real world,
                 </span>,
-                'not just models that demo.',
+                'not just models for demos.',
               ]}
             />
 
@@ -118,7 +121,17 @@ export function Home() {
         </Container>
       </Section>
 
-      <Section className="border-border border-t">
+      <Section className="border-border border-t py-14">
+        <Container>
+          <Reveal>
+            <ToolsTouched />
+          </Reveal>
+        </Container>
+      </Section>
+
+      <WorkedInMarquee />
+
+      <Section>
         <Container>
           <Reveal className="flex flex-col gap-10">
             <div className="flex items-end justify-between">

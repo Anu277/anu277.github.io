@@ -1,10 +1,11 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { Container } from '@/components/layout/Container'
 import { Section } from '@/components/layout/Section'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { ProjectCard } from '@/components/cards/ProjectCard'
 import { ProfessionalWorkCard } from '@/components/cards/ProfessionalWorkCard'
 import { cn } from '@/lib/cn'
+import { scrollToElement } from '@/lib/lenis'
 import { PROJECTS } from '@/data/projects'
 import { useDocumentMeta } from '@/hooks/useDocumentMeta'
 import type { ProjectCategory } from '@/types/project'
@@ -47,6 +48,9 @@ export function Projects() {
     (p) => p.origin === 'Personal',
   )
 
+  const professionalWorkRef = useRef<HTMLDivElement>(null)
+  const personalProjectsRef = useRef<HTMLDivElement>(null)
+
   return (
     <Section>
       <Container>
@@ -77,12 +81,40 @@ export function Projects() {
                 />
               ))}
             </div>
+
+            {(professionalWork.length > 0 || personalProjects.length > 0) && (
+              <div className="flex flex-wrap gap-3">
+                {professionalWork.length > 0 && (
+                  <JumpButton
+                    label="Professional Work"
+                    count={professionalWork.length}
+                    onClick={() => {
+                      if (professionalWorkRef.current) {
+                        scrollToElement(professionalWorkRef.current)
+                      }
+                    }}
+                  />
+                )}
+                {personalProjects.length > 0 && (
+                  <JumpButton
+                    label="Personal Projects"
+                    count={personalProjects.length}
+                    onClick={() => {
+                      if (personalProjectsRef.current) {
+                        scrollToElement(personalProjectsRef.current)
+                      }
+                    }}
+                  />
+                )}
+              </div>
+            )}
           </div>
 
           {professionalWork.length > 0 && (
-            <div className="flex flex-col gap-6">
-              <div className="border-border border-b pb-4">
-                <h2 className="text-text-primary text-lg font-medium">
+            <div ref={professionalWorkRef} className="flex flex-col gap-6">
+              <div className="border-accent border-b pb-4">
+                <h2 className="text-text-primary flex items-center gap-2.5 text-lg font-medium">
+                  <span className="bg-accent h-px w-6" aria-hidden="true" />
                   Professional Work
                 </h2>
               </div>
@@ -95,9 +127,10 @@ export function Projects() {
           )}
 
           {personalProjects.length > 0 && (
-            <div className="flex flex-col gap-6">
-              <div className="border-border border-b pb-4">
-                <h2 className="text-text-primary text-lg font-medium">
+            <div ref={personalProjectsRef} className="flex flex-col gap-6">
+              <div className="border-accent border-b pb-4">
+                <h2 className="text-text-primary flex items-center gap-2.5 text-lg font-medium">
+                  <span className="bg-accent h-px w-6" aria-hidden="true" />
                   Personal Projects
                 </h2>
               </div>
@@ -111,6 +144,27 @@ export function Projects() {
         </div>
       </Container>
     </Section>
+  )
+}
+
+function JumpButton({
+  label,
+  count,
+  onClick,
+}: {
+  label: string
+  count: number
+  onClick: () => void
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="border-border text-text-secondary hover:border-accent hover:text-accent flex items-center gap-2 border px-3.5 py-2 text-sm transition-colors"
+    >
+      {label}
+      <span className="text-text-muted font-mono text-xs">{count}</span>
+    </button>
   )
 }
 

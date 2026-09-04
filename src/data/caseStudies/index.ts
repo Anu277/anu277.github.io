@@ -1,4 +1,6 @@
 import type { CaseStudy } from '@/types/caseStudy'
+import { PAPER_TAIL_CASE_STUDY } from '@/data/caseStudies/paper-tail'
+import { FAQIT_CASE_STUDY } from '@/data/caseStudies/faqit'
 import { ORIEON_CASE_STUDY } from '@/data/caseStudies/orieon'
 import { BEAR_BEHAVIOR_RECOGNITION_CASE_STUDY } from '@/data/caseStudies/bear-behavior-recognition'
 import { OCR_PLATFORM_MIGRATION_CASE_STUDY } from '@/data/caseStudies/ocr-platform-migration'
@@ -15,6 +17,8 @@ import { HAND_SIGN_RECOGNITION_CASE_STUDY } from '@/data/caseStudies/hand-sign-r
 import { MUSIC_RECOMMENDATION_SYSTEM_CASE_STUDY } from '@/data/caseStudies/music-recommendation-system'
 
 export const CASE_STUDIES: Record<string, CaseStudy> = {
+  'paper-tail': PAPER_TAIL_CASE_STUDY,
+  faqit: FAQIT_CASE_STUDY,
   orieon: ORIEON_CASE_STUDY,
   'bear-behavior-recognition': BEAR_BEHAVIOR_RECOGNITION_CASE_STUDY,
   'ocr-platform-migration': OCR_PLATFORM_MIGRATION_CASE_STUDY,

@@ -25,6 +25,15 @@
   --radius-lg: 0px;
 }
 
+@keyframes roll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5.25rem);
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

@@ -19,8 +19,8 @@ export const RESUME_SUMMARY =
 export const RESUME_EXPERIENCE: ResumeExperience[] = [
   {
     company: 'Eizen AI',
-    role: 'Machine Learning Engineer',
-    location: 'Computer Vision, Hyderabad',
+    role: 'Machine Learning Engineer — Computer Vision',
+    location: 'In-office, Hyderabad · On-site, Vantara, Gujarat',
     period: 'Nov 2025 - Jul 2026',
     highlights: [
       'Trained a lightweight attentive probe on Meta’s frozen V-JEPA 2.1 video encoder for 5-class bear-behavior recognition: 75.5% supervised probe accuracy and 72.6% weighted F1, with 66.9% purity from unsupervised clustering; deployed to NVIDIA Jetson edge devices for on-site inference.',
@@ -34,8 +34,8 @@ export const RESUME_EXPERIENCE: ResumeExperience[] = [
   },
   {
     company: 'GLOOMDEV',
-    role: 'Web Developer, Intern',
-    location: 'Full Stack (Backend Emphasis)',
+    role: 'Web Developer, Intern — Full Stack (Backend Emphasis)',
+    location: 'Remote',
     period: 'Jul 2024 - Dec 2024',
     highlights: [
       'Developed gloom-dev.com within the first month, focusing on backend integration and deployment workflows.',
@@ -64,29 +64,30 @@ export const RESUME_SKILLS: Record<string, string[]> = {
     'Vertex AI',
   ],
   'Computer Vision': [
-    'YOLOv8 (OBB)',
+    'YOLO',
     'OpenCV',
     'MediaPipe',
     'SAM',
     'DINOv2',
     'CLIP',
     'PaddleOCR',
-    'Whisper',
     'V-JEPA',
   ],
-  'LLM & GenAI': [
+  'LLM & GenAI Tools': [
     'Gemini SDK',
     'LangChain',
+    'LangGraph',
     'ChromaDB',
     'RAG',
-    'llama.cpp (GGUF)',
-    'whisper.cpp (GGML)',
+    'llama.cpp',
+    'Whisper',
+    'whisper.cpp',
   ],
   'Inference & Deployment': [
     'TensorRT',
     'NVIDIA Triton',
     'NVIDIA DeepStream SDK',
-    'ONNX / ONNX Runtime',
+    'ONNX',
     'NVDEC',
     'Docker',
     'CUDA',
@@ -94,8 +95,8 @@ export const RESUME_SKILLS: Record<string, string[]> = {
   ],
   'Simulation & Edge': [
     'NVIDIA Isaac Sim',
-    'NVIDIA Jetson Nano',
-    'Raspberry Pi (Hailo)',
+    'NVIDIA Jetson',
+    'Raspberry Pi',
   ],
   'Backend & Data': [
     'FastAPI',

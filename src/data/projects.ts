@@ -139,6 +139,31 @@ export const PROJECTS: Project[] = [
   },
   // Personal Projects
   {
+    slug: 'paper-tail',
+    title: 'Paper Tail: Agentic RAG for Scientific Papers',
+    summary:
+      'An agentic RAG system that plans searches, picks a retrieval strategy per question, evaluates evidence, follows citations across papers, and verifies claims before answering, rather than doing one-shot top-K retrieval.',
+    categories: ['Generative AI', 'Backend'],
+    technologies: ['LangGraph', 'FastAPI', 'React', 'GROBID'],
+    status: 'Shipped',
+    duration: '2026',
+    origin: 'Personal',
+    links: {
+      repo: 'https://github.com/Anu277/paper-tail',
+    },
+  },
+  {
+    slug: 'faqit',
+    title: 'Faqit: AI Interview Drills',
+    summary:
+      'An Android app that generates AI-engineering interview questions on demand via Claude, Gemini, or Groq, using a per-topic coverage ledger and fingerprint dedup to keep the request prompt a constant size instead of resending question history.',
+    categories: ['Generative AI'],
+    technologies: ['Kotlin', 'Android', 'Claude API', 'Gemini API', 'Groq API'],
+    status: 'Shipped',
+    duration: '2026',
+    origin: 'Personal',
+  },
+  {
     slug: 'orieon',
     title: 'Orieon: Offline AI Video Player',
     summary:

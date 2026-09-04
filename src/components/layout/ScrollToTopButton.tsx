@@ -12,7 +12,7 @@ export function ScrollToTopButton() {
       onClick={() => scrollToTop()}
       aria-label="Scroll to top"
       className={cn(
-        'border-border bg-surface hover:border-accent hover:text-accent text-text-secondary fixed right-6 bottom-6 z-40 flex size-11 items-center justify-center border transition-all duration-200 md:right-10 md:bottom-10',
+        'border-accent bg-surface hover:bg-accent text-accent hover:text-background fixed right-6 bottom-6 z-40 flex size-11 items-center justify-center border transition-all duration-200 md:right-10 md:bottom-10',
         visible
           ? 'translate-y-0 opacity-100'
           : 'pointer-events-none translate-y-3 opacity-0',

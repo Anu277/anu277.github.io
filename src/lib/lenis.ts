@@ -17,3 +17,11 @@ export function scrollToTop(immediate = false) {
     window.scrollTo({ top: 0, behavior: immediate ? 'auto' : 'smooth' })
   }
 }
+
+export function scrollToElement(target: HTMLElement, offset = -24) {
+  if (lenisInstance) {
+    lenisInstance.scrollTo(target, { offset })
+  } else {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+}
