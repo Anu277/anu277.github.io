@@ -21,7 +21,7 @@ export function Contact() {
           <SectionHeader
             eyebrow="Contact"
             title="Get in touch"
-            subtitle="Open to conversations about computer vision, edge AI, and applied ML systems. Based in Telangana, India (IST)."
+            subtitle="For professional correspondence, connect by email or LinkedIn. Based in Telangana, India (IST)."
           />
 
           <ul className="flex flex-col gap-4">

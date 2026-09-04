@@ -49,7 +49,10 @@
     @apply bg-background text-text-primary font-sans antialiased;
     font-size: 16px;
     line-height: 1.6;
+    background-image: radial-gradient(ellipse at 70% 0%, rgba(255,255,255,.025), transparent 48%);
   }
+
+  h1, h2, h3, h4 { font-weight: 500; }
 
   h1,
   h2,
@@ -96,4 +99,21 @@
       scroll-behavior: auto !important;
     }
   }
+}
+
+@layer components {
+  .computational-grid {
+    background-image: linear-gradient(rgba(246,246,246,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(246,246,246,.035) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: linear-gradient(to bottom, black, transparent 84%);
+  }
+
+  .section-label { @apply font-mono text-[10px] tracking-[.2em] text-text-muted uppercase; }
+  .technical-link { @apply inline-flex items-center gap-2 font-mono text-[11px] tracking-[.12em] text-accent uppercase transition-colors hover:text-accent-hover; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .has-technical-cursor, .has-technical-cursor a, .has-technical-cursor button, .has-technical-cursor input, .has-technical-cursor textarea, .has-technical-cursor select { cursor: none; }
+  .technical-cursor { position: fixed; z-index: 100; top: -5px; left: -5px; width: 10px; height: 10px; pointer-events: none; background: var(--color-text-primary); mix-blend-mode: difference; transition: width .16s ease, height .16s ease, margin .16s ease, border .16s ease, background-color .16s ease; }
+  .technical-cursor.is-interactive { width: 24px; height: 24px; margin: -7px 0 0 -7px; border: 1px solid var(--color-accent); background: transparent; }
 }

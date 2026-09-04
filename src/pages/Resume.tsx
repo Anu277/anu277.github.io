@@ -27,8 +27,8 @@ export function Resume() {
               subtitle={RESUME_SUMMARY}
             />
             <a
-              href="/resume.pdf"
-              download
+              href="/Anurag_Bheemani_Resume.pdf"
+              download="Anurag_Bheemani_Resume.pdf"
               className={cn(buttonVariants({ variant: 'secondary' }), 'shrink-0')}
             >
               <Download className="size-4" strokeWidth={1.5} />

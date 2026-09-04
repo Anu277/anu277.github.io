@@ -51,9 +51,10 @@ export function ContributionGraph({ username }: { username: string }) {
     let lastMonth = -1
 
     weeks.forEach((week, weekIndex) => {
-      const firstValidDay = week.find((d) => d !== null)
-      if (!firstValidDay) return
-      const month = new Date(firstValidDay.date).getMonth()
+      const validDays = week.filter((d): d is ContributionDay => d !== null)
+      if (validDays.length === 0) return
+      const lastValidDay = validDays[validDays.length - 1]
+      const month = new Date(lastValidDay.date).getMonth()
       if (month !== lastMonth) {
         markers.push({ label: MONTH_LABELS[month], weekIndex })
         lastMonth = month

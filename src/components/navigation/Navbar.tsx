@@ -4,9 +4,7 @@ import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/cn'
 import { useScrolled } from '@/hooks/useScrolled'
 import { NAV_LINKS } from '@/constants/nav'
-import { SOCIAL_LINKS } from '@/constants/social'
 import { Container } from '@/components/layout/Container'
-import { GithubIcon, LinkedinIcon } from '@/components/ui/icons'
 
 export function Navbar() {
   const scrolled = useScrolled()
@@ -31,7 +29,7 @@ export function Navbar() {
             className="text-text-primary flex items-center gap-2 font-mono text-sm tracking-tight"
             onClick={() => setMenuOpen(false)}
           >
-            <img src="/favicon-32.png" alt="" className="size-5" width={32} height={32} />
+            <span className="border border-border px-1.5 py-0.5 text-[11px] text-accent">AB</span>
             anurag.bheemani
           </NavLink>
 
@@ -56,25 +54,8 @@ export function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden items-center gap-4 md:flex">
-            <a
-              href={SOCIAL_LINKS.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-              className="text-text-secondary hover:text-text-primary transition-colors"
-            >
-              <GithubIcon className="size-4" />
-            </a>
-            <a
-              href={SOCIAL_LINKS.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-              className="text-text-secondary hover:text-text-primary transition-colors"
-            >
-              <LinkedinIcon className="size-4" />
-            </a>
+          <div className="hidden font-mono text-[10px] tracking-[.14em] text-text-secondary uppercase md:block">
+            AI Engineer
           </div>
 
           <button
@@ -96,6 +77,9 @@ export function Navbar() {
       {menuOpen && (
         <div className="border-border bg-background border-t md:hidden">
           <Container>
+            <p className="text-text-secondary pt-4 font-mono text-[10px] tracking-[.14em] uppercase">
+              AI Engineer
+            </p>
             <ul className="flex flex-col gap-1 py-4">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
