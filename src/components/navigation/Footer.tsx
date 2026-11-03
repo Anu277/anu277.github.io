@@ -10,20 +10,17 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-border border-t">
-      <Container className="flex flex-col gap-8 py-12 md:flex-row md:items-start md:justify-between">
+    <footer className="border-border bg-surface/30 border-t">
+      <Container className="grid gap-10 py-14 md:grid-cols-[1.2fr_1fr_auto] md:items-start">
         <div className="flex flex-col gap-4">
-          <span className="text-text-primary text-sm">
-            anurag bheemani
-          </span>
+          <span className="text-text-primary text-lg font-medium">Anurag Bheemani</span>
           <p className="text-text-muted max-w-xs text-sm">
-            Machine learning engineer working on computer vision and applied
-            GenAI systems.
+            AI engineer building reliable systems from research to production.
           </p>
         </div>
 
         <nav aria-label="Footer">
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+          <ul className="grid grid-cols-2 gap-x-8 gap-y-3">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
@@ -45,13 +42,13 @@ export function Footer() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <a
             href={SOCIAL_LINKS.github}
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
-            className="text-text-secondary hover:text-text-primary transition-colors"
+            className="border-border text-text-secondary hover:border-accent hover:text-accent border p-2.5 transition-colors"
           >
             <GithubIcon className="size-4" />
           </a>
@@ -60,24 +57,23 @@ export function Footer() {
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
-            className="text-text-secondary hover:text-text-primary transition-colors"
+            className="border-border text-text-secondary hover:border-accent hover:text-accent border p-2.5 transition-colors"
           >
             <LinkedinIcon className="size-4" />
           </a>
           <a
             href={`mailto:${SOCIAL_LINKS.email}`}
             aria-label="Email"
-            className="text-text-secondary hover:text-text-primary transition-colors"
+            className="border-border text-text-secondary hover:border-accent hover:text-accent border p-2.5 transition-colors"
           >
             <Mail className="size-4" strokeWidth={1.5} />
           </a>
         </div>
       </Container>
 
-      <Container className="border-border border-t py-6">
-        <p className="text-text-muted text-xs">
-          &copy; {year} Anurag Bheemani. All rights reserved.
-        </p>
+      <Container className="border-border flex flex-col gap-2 border-t py-6 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-text-muted text-xs">&copy; {year} Anurag Bheemani.</p>
+        <p className="text-text-muted text-xs">Hyderabad, India · Open to AI engineering opportunities</p>
       </Container>
     </footer>
   )

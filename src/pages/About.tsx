@@ -4,6 +4,9 @@ import { Reveal } from '@/components/animations/Reveal'
 import { TechBadge } from '@/components/ui/TechBadge'
 import { useDocumentMeta } from '@/hooks/useDocumentMeta'
 import portraitHalftone from '@/assets/images/portrait-halftone.png'
+import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
+import { ROUTES } from '@/constants/routes'
 
 const WHAT_I_BUILD = [
   'Production AI Systems',
@@ -33,32 +36,31 @@ const TIMELINE = [
 export function About() {
   useDocumentMeta(
     'About, Anurag Bheemani',
-    'Applied AI engineer building production systems across computer vision, generative AI, and edge infrastructure. Engineering philosophy, timeline, and current focus.',
+    'AI engineer building production systems across generative AI, computer vision, edge deployment, and AI infrastructure.',
   )
 
   return (
     <>
-      <Section className="pb-16">
+      <Section className="border-b border-border pb-20">
         <Container>
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
             <Reveal type="slide">
               <span className="text-accent mb-5 flex items-center gap-2.5 text-xs tracking-wide uppercase">
                 <span className="bg-accent h-px w-6" aria-hidden="true" />
-                About
+                About / AI engineer
               </span>
               <h1 className="text-text-primary mb-8 text-4xl leading-[1.05] font-semibold tracking-tight text-balance md:text-5xl">
-                Building AI systems that survive outside the lab.
+                I care about what happens after the model works.
               </h1>
               <p className="text-text-secondary mb-4 text-lg leading-relaxed">
-                Most machine learning models work well in notebooks.
-                I&apos;m interested in what happens after that.
+                A promising model is only the beginning. I&apos;m interested in
+                the engineering that turns it into a reliable product.
               </p>
               <p className="text-text-secondary text-lg leading-relaxed">
-                My work focuses on taking research ideas and making them run
-                reliably on real hardware, whether that&apos;s an NVIDIA
-                Jetson deployed in the field, an offline desktop AI
-                application, or a production computer vision pipeline. I
-                enjoy the engineering between a benchmark and a product.
+                My work spans generative AI, local inference, computer vision,
+                edge hardware, retrieval, and the infrastructure around them.
+                I enjoy owning the path from research and evaluation to the
+                software people actually use.
               </p>
             </Reveal>
 
@@ -87,13 +89,11 @@ export function About() {
         </Container>
       </Section>
 
-      <Section className="border-border border-t">
+      <Section>
         <Container>
-          <Reveal className="flex flex-col gap-8">
-            <h2 className="text-text-primary text-2xl font-medium">
-              Engineering philosophy
-            </h2>
-            <div className="flex max-w-[62ch] flex-col gap-4">
+          <Reveal className="grid gap-10 lg:grid-cols-[0.55fr_1.45fr] lg:gap-20">
+            <div><p className="section-kicker">Engineering philosophy</p><h2 className="text-text-primary text-3xl font-medium tracking-tight">Use the right system, not the fashionable one.</h2></div>
+            <div className="flex max-w-[62ch] flex-col gap-5 border-l border-border pl-7">
               <p className="text-text-secondary text-base leading-relaxed">
                 I don&apos;t chase the newest model. I care about whether it
                 solves the problem.
@@ -113,12 +113,10 @@ export function About() {
         </Container>
       </Section>
 
-      <Section className="border-border border-t">
+      <Section className="border-border bg-surface/30 border-y">
         <Container>
           <Reveal className="flex flex-col gap-8">
-            <h2 className="text-text-primary text-2xl font-medium">
-              What I build
-            </h2>
+            <div><p className="section-kicker">Capabilities</p><h2 className="text-text-primary text-3xl font-medium tracking-tight">What I build</h2></div>
             <div className="flex flex-wrap gap-2.5">
               {WHAT_I_BUILD.map((item) => (
                 <TechBadge key={item} label={item} />
@@ -128,17 +126,15 @@ export function About() {
         </Container>
       </Section>
 
-      <Section className="border-border border-t">
+      <Section>
         <Container>
           <Reveal className="flex flex-col gap-8">
-            <h2 className="text-text-primary text-2xl font-medium">
-              Currently exploring
-            </h2>
+            <div><p className="section-kicker">Now</p><h2 className="text-text-primary text-3xl font-medium tracking-tight">Currently exploring</h2></div>
             <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {CURRENTLY_EXPLORING.map((item) => (
                 <li
                   key={item}
-                  className="text-text-secondary flex items-center gap-3 text-base"
+                  className="border-border bg-surface text-text-secondary flex items-center gap-3 border p-5 text-base"
                 >
                   <span
                     className="bg-accent size-1.5 shrink-0"
@@ -152,17 +148,15 @@ export function About() {
         </Container>
       </Section>
 
-      <Section className="border-border border-t">
+      <Section className="border-border border-y">
         <Container>
           <Reveal className="flex flex-col gap-10">
-            <h2 className="text-text-primary text-2xl font-medium">
-              Timeline
-            </h2>
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-4">
+            <div><p className="section-kicker">Progression</p><h2 className="text-text-primary text-3xl font-medium tracking-tight">From backend foundations to AI systems.</h2></div>
+            <div className="grid gap-px border border-border bg-border sm:grid-cols-4">
               {TIMELINE.map((item, i) => (
                 <div
                   key={item.year}
-                  className="flex flex-1 items-start gap-4 sm:flex-col sm:gap-3"
+                  className="bg-background p-6"
                 >
                   <span className="text-accent text-sm">
                     {item.year}
@@ -170,17 +164,10 @@ export function About() {
                   <span className="text-text-primary text-base font-medium">
                     {item.label}
                   </span>
-                  {i < TIMELINE.length - 1 && (
-                    <span
-                      className="text-text-muted hidden sm:block"
-                      aria-hidden="true"
-                    >
-                      &darr;
-                    </span>
-                  )}
+                  {i < TIMELINE.length - 1 && null}
                 </div>
               ))}
-              <div className="flex flex-1 items-start gap-4 sm:flex-col sm:gap-3">
+              <div className="bg-background p-6">
                 <span className="text-accent text-sm">Today</span>
                 <span className="text-text-primary text-base font-medium">
                   Building production AI across computer vision, local LLMs,
@@ -192,16 +179,11 @@ export function About() {
         </Container>
       </Section>
 
-      <Section className="border-border border-t">
+      <Section>
         <Container>
-          <Reveal className="flex flex-col gap-6">
-            <h2 className="text-text-primary text-2xl font-medium">
-              Beyond engineering
-            </h2>
-            <p className="text-text-secondary max-w-[52ch] text-base leading-relaxed">
-              Outside work, I read engineering blogs, explore new AI systems,
-              and try to turn ideas into products rather than demos.
-            </p>
+          <Reveal className="flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
+            <div><p className="section-kicker">Next step</p><h2 className="max-w-2xl text-3xl font-medium tracking-tight">I&apos;m looking for a team solving meaningful AI engineering problems.</h2><p className="text-text-secondary mt-4 max-w-[58ch] text-base leading-relaxed">If your team works across models, systems, and real product constraints, I&apos;d like to hear about the role.</p></div>
+            <Link to={ROUTES.contact} className="inline-flex shrink-0 items-center gap-2 border border-accent px-5 py-3 text-sm text-accent transition hover:bg-accent hover:text-background">Discuss an opportunity <ArrowRight className="size-4" /></Link>
           </Reveal>
         </Container>
       </Section>

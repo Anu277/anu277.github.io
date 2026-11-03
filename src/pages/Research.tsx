@@ -12,22 +12,30 @@ export function Research() {
   )
 
   return (
-    <Section>
-      <Container>
-        <div className="flex flex-col gap-10">
+    <>
+      <Section className="border-b border-border pb-16 md:pb-20">
+        <Container>
           <SectionHeader
-            eyebrow="Research"
-            title="Engineering notebook"
-            subtitle="Implementation decisions, experiments, and lessons from building AI systems. Not project summaries; the reasoning behind them."
+            eyebrow="Technical field notes"
+            title="The decisions behind the systems."
+            subtitle="Experiments, trade-offs, benchmarks, and lessons from building AI products—not recycled project summaries."
           />
+        </Container>
+      </Section>
 
+      <Section>
+        <Container>
+          <div className="mb-8 flex items-center justify-between border-b border-border pb-5">
+            <p className="text-sm text-text-secondary">All engineering notes</p>
+            <p className="font-mono text-xs text-text-muted">{RESEARCH_NOTES.length.toString().padStart(2, '0')} entries</p>
+          </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {RESEARCH_NOTES.map((note) => (
               <ResearchCard key={note.slug} note={note} />
             ))}
           </div>
-        </div>
-      </Container>
-    </Section>
+        </Container>
+      </Section>
+    </>
   )
 }

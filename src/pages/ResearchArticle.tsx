@@ -1,5 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import { Container } from '@/components/layout/Container'
 import { Section } from '@/components/layout/Section'
 import { RESEARCH_NOTE_BODIES, RESEARCH_NOTES } from '@/data/research'
@@ -21,10 +21,10 @@ export function ResearchArticle() {
   }
 
   return (
-    <Section>
-      <Container>
-        <div className="mx-auto flex max-w-[68ch] flex-col gap-10">
-          <div className="flex flex-col gap-6">
+    <>
+      <Section className="border-b border-border pb-16 md:pb-20">
+        <Container>
+          <div className="mx-auto max-w-5xl">
             <Link
               to={ROUTES.research}
               className="text-text-muted hover:text-text-primary flex items-center gap-2 text-xs transition-colors"
@@ -33,46 +33,52 @@ export function ResearchArticle() {
               Engineering notebook
             </Link>
 
-            <div className="flex flex-col gap-3">
-              <div className="text-text-muted flex items-center gap-3 text-xs">
+            <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_13rem] lg:items-end">
+              <div><div className="text-text-muted mb-5 flex items-center gap-3 text-xs">
                 <span>{note.date}</span>
                 <span aria-hidden="true">&middot;</span>
                 <span>{note.readingTime} read</span>
               </div>
-              <h1 className="text-text-primary text-3xl leading-tight font-semibold tracking-tight text-balance md:text-4xl">
+              <h1 className="text-text-primary text-4xl leading-[1.08] font-semibold tracking-[-0.04em] text-balance md:text-6xl">
                 {note.title}
-              </h1>
-            </div>
+              </h1></div>
 
             {note.relatedProjectSlug && (
               <Link
                 to={ROUTES.project(note.relatedProjectSlug)}
-                className="text-accent hover:text-accent-hover w-fit text-xs"
+                className="group flex items-center justify-between gap-4 border border-border bg-surface p-4 text-xs text-accent hover:border-accent"
               >
-                Related project: {note.relatedProjectSlug} &rarr;
+                <span><span className="mb-1 block text-[9px] uppercase tracking-[0.12em] text-text-muted">Related project</span>{note.relatedProjectSlug}</span><ArrowUpRight className="size-4" />
               </Link>
             )}
           </div>
+          </div>
+        </Container>
+      </Section>
 
-          <div className="flex flex-col gap-10">
-            {sections.map((section) => (
-              <div key={section.heading} className="flex flex-col gap-4">
-                <h2 className="text-text-primary text-lg font-medium">
-                  {section.heading}
-                </h2>
-                {section.paragraphs.map((paragraph, i) => (
+      <Section>
+        <Container>
+          <article className="mx-auto max-w-5xl">
+            <p className="mb-12 border-l-2 border-accent pl-6 text-lg leading-relaxed text-text-secondary">{note.summary}</p>
+            <div className="flex flex-col gap-12">
+            {sections.map((section, sectionIndex) => (
+              <section key={section.heading} className="grid gap-5 border-t border-border pt-7 md:grid-cols-[3rem_12rem_1fr] md:gap-8">
+                <span className="font-mono text-xs text-accent">{String(sectionIndex + 1).padStart(2, '0')}</span>
+                <h2 className="text-text-primary text-lg font-medium">{section.heading}</h2>
+                <div className="flex flex-col gap-5">{section.paragraphs.map((paragraph, i) => (
                   <p
                     key={i}
                     className="text-text-secondary text-base leading-relaxed"
                   >
                     {paragraph}
                   </p>
-                ))}
-              </div>
+                ))}</div>
+              </section>
             ))}
-          </div>
-        </div>
-      </Container>
-    </Section>
+            </div>
+          </article>
+        </Container>
+      </Section>
+    </>
   )
 }

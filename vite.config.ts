@@ -2,19 +2,8 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
-import { execFileSync } from 'node:child_process'
 
-function getLastCommitDate() {
-  try {
-    return execFileSync('git', ['log', '-1', '--format=%cI'], {
-      encoding: 'utf8',
-    }).trim()
-  } catch {
-    return new Date().toISOString()
-  }
-}
-
-const lastCommitDate = getLastCommitDate()
+const buildDate = new Date().toISOString()
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -25,6 +14,6 @@ export default defineConfig({
     },
   },
   define: {
-    __LAST_UPDATED__: JSON.stringify(lastCommitDate),
+    __LAST_UPDATED__: JSON.stringify(buildDate),
   },
 })

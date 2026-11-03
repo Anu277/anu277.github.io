@@ -82,7 +82,7 @@ export function Navbar() {
         <div className="border-border bg-background border-t md:hidden">
           <Container>
             <p className="text-text-secondary pt-4 text-sm">
-              Machine Learning Engineer
+              AI Engineer
             </p>
             <ul className="flex flex-col gap-1 py-4">
               {NAV_LINKS.map((link) => (

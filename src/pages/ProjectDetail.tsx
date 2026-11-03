@@ -1,4 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
+import type { ReactNode } from 'react'
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import { Container } from '@/components/layout/Container'
 import { Section } from '@/components/layout/Section'
@@ -20,22 +21,20 @@ function ProseBlock({
   paragraphs: string[]
 }) {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="grid gap-6 border-t border-border pt-7 md:grid-cols-[12rem_1fr] md:gap-10">
       <h2 className="text-text-primary text-lg font-medium">{heading}</h2>
-      {paragraphs.map((p, i) => (
-        <p key={i} className="text-text-secondary text-base leading-relaxed">
-          {p}
-        </p>
-      ))}
+      <div className="flex flex-col gap-4">{paragraphs.map((p, i) => (
+        <p key={i} className="text-text-secondary text-base leading-relaxed">{p}</p>
+      ))}</div>
     </div>
   )
 }
 
 function ListBlock({ heading, items }: { heading: string; items: string[] }) {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="grid gap-6 border-t border-border pt-7 md:grid-cols-[12rem_1fr] md:gap-10">
       <h2 className="text-text-primary text-lg font-medium">{heading}</h2>
-      <ul className="flex flex-col gap-3">
+      <ul className="flex flex-col gap-4">
         {items.map((item, i) => (
           <li
             key={i}
@@ -78,11 +77,12 @@ export function ProjectDetail() {
   ).slice(0, 2)
 
   return (
-    <Section>
-      <Container>
-        <div className="mx-auto flex max-w-[72ch] flex-col gap-14">
+    <>
+      <Section className="border-b border-border pb-16 md:pb-20">
+        <Container>
           {/* Hero */}
-          <Reveal type="slide" className="flex flex-col gap-6">
+          <Reveal type="slide" className="grid gap-10 lg:grid-cols-[1fr_20rem] lg:items-end">
+            <div className="flex flex-col gap-6">
             <Link
               to={ROUTES.projects}
               className="text-text-muted hover:text-text-primary flex items-center gap-2 text-xs transition-colors"
@@ -95,25 +95,9 @@ export function ProjectDetail() {
               <span className="text-accent text-xs tracking-wide uppercase">
                 {project.categories.join(' / ')}
               </span>
-              <h1 className="text-text-primary text-3xl leading-tight font-semibold tracking-tight text-balance md:text-4xl">
+              <h1 className="text-text-primary max-w-4xl text-4xl leading-[1.05] font-semibold tracking-[-0.04em] text-balance md:text-6xl">
                 {project.title}
               </h1>
-            </div>
-
-            <div className="text-text-secondary flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
-              {project.company && (
-                <span>
-                  {project.company}
-                  {project.location && (
-                    <span className="text-text-muted">
-                      {' '}
-                      &middot; {project.location}
-                    </span>
-                  )}
-                </span>
-              )}
-              <span>{project.duration}</span>
-              <StatusBadge status={project.status} />
             </div>
 
             {project.links?.repo && (
@@ -131,12 +115,23 @@ export function ProjectDetail() {
               </div>
             )}
 
-            <div className="flex flex-wrap gap-2">
+            </div>
+            <aside className="border border-border bg-surface p-6">
+              <p className="mb-5 text-[11px] uppercase tracking-[0.16em] text-accent">Project details</p>
+              <dl className="space-y-5 text-sm"><ProjectFact label="Type" value={project.origin === 'Company' ? project.company ?? 'Professional' : 'Independent product'} /><ProjectFact label="Timeline" value={project.duration} /><ProjectFact label="Status" value={<StatusBadge status={project.status} />} />{project.location && <ProjectFact label="Location" value={project.location} />}</dl>
+            </aside>
+            <div className="flex flex-wrap gap-2 lg:col-span-2">
               {project.technologies.map((tech) => (
                 <TechBadge key={tech} label={tech} />
               ))}
             </div>
           </Reveal>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+        <div className="mx-auto flex max-w-5xl flex-col gap-14">
 
           {!caseStudy ? (
             <Reveal>
@@ -150,11 +145,9 @@ export function ProjectDetail() {
           ) : (
             <>
               {/* Executive summary */}
-              <Reveal className="flex flex-col gap-4">
-                <h2 className="text-text-primary text-lg font-medium">
-                  Executive summary
-                </h2>
-                <p className="text-text-secondary text-lg leading-relaxed">
+              <Reveal className="grid gap-6 border-l-2 border-accent bg-surface p-7 md:grid-cols-[12rem_1fr] md:gap-10 md:p-9">
+                <h2 className="text-accent text-[11px] font-medium tracking-[0.15em] uppercase">Executive summary</h2>
+                <p className="text-text-primary text-lg leading-relaxed">
                   {caseStudy.executiveSummary}
                 </p>
               </Reveal>
@@ -216,14 +209,13 @@ export function ProjectDetail() {
 
               {/* Metrics / Benchmarks */}
               {caseStudy.metrics && (
-                <Reveal className="flex flex-col gap-6">
-                  <h2 className="text-text-primary text-lg font-medium">
-                    Benchmarks
-                  </h2>
-                  <div className="border-border grid grid-cols-1 gap-6 border-t pt-6 sm:grid-cols-2">
+                <Reveal className="flex flex-col gap-6 border-y border-border bg-surface/40 px-6 py-8">
+                  <p className="section-kicker">Measured results</p>
+                  <h2 className="text-text-primary text-2xl font-medium">Benchmarks</h2>
+                  <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2">
                     {caseStudy.metrics.map((metric) => (
-                      <div key={metric.label} className="flex flex-col gap-1">
-                        <span className="text-accent text-2xl font-medium">
+                      <div key={metric.label} className="flex flex-col gap-2 bg-background p-6">
+                        <span className="text-accent text-3xl font-medium">
                           {metric.value}
                         </span>
                         <span className="text-text-primary text-sm font-medium">
@@ -291,8 +283,12 @@ export function ProjectDetail() {
               </ul>
             </Reveal>
           )}
-        </div>
-      </Container>
-    </Section>
+        </div></Container>
+      </Section>
+    </>
   )
+}
+
+function ProjectFact({ label, value }: { label: string; value: ReactNode }) {
+  return <div><dt className="mb-1 text-[10px] uppercase tracking-[0.12em] text-text-muted">{label}</dt><dd className="text-text-primary">{value}</dd></div>
 }

@@ -14,7 +14,7 @@ export interface ResumeEducation {
 }
 
 export const RESUME_SUMMARY =
-  'Machine Learning Engineer focused on computer vision and video understanding. Hands-on with self-supervised video models (V-JEPA), object detection (YOLO), and model deployment via TensorRT and DeepStream, on a solid Python and backend foundation.'
+  'AI Engineer building production systems across generative AI, computer vision, local inference, and edge deployment, with hands-on ownership from model evaluation to product integration.'
 
 export const RESUME_EXPERIENCE: ResumeExperience[] = [
   {

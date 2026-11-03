@@ -7,7 +7,7 @@ export function ResearchCard({ note }: { note: ResearchNote }) {
   return (
     <Link
       to={ROUTES.researchArticle(note.slug)}
-      className="group border-border bg-surface hover:bg-surface-elevated relative flex flex-col gap-4 border p-6 transition-colors"
+      className="group border-border bg-surface hover:bg-surface-elevated relative flex min-h-72 flex-col gap-5 border p-7 transition-all hover:-translate-y-1 hover:border-text-muted"
     >
       <span
         className="bg-border group-hover:bg-accent absolute top-0 left-0 h-full w-0.75 transition-colors"
@@ -22,7 +22,7 @@ export function ResearchCard({ note }: { note: ResearchNote }) {
         />
       </div>
 
-      <h3 className="text-text-primary pl-2 text-lg font-medium">
+      <h3 className="text-text-primary group-hover:text-accent pl-2 text-xl font-medium leading-snug">
         {note.title}
       </h3>
 
@@ -30,7 +30,7 @@ export function ResearchCard({ note }: { note: ResearchNote }) {
         {note.summary}
       </p>
 
-      <span className="text-text-muted pl-2 text-xs">
+      <span className="text-text-muted mt-auto border-t border-border pt-4 pl-2 text-xs">
         {note.readingTime} read
       </span>
     </Link>
