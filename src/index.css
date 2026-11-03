@@ -24,7 +24,6 @@
   --radius-md: 0px;
   --radius-lg: 0px;
 }
-
 @keyframes roll {
   from {
     transform: translateY(0);
@@ -50,6 +49,10 @@
     font-size: 16px;
     line-height: 1.6;
     background-image: radial-gradient(ellipse at 70% 0%, rgba(255,255,255,.025), transparent 48%);
+  }
+
+  a, button {
+    -webkit-tap-highlight-color: transparent;
   }
 
   h1, h2, h3, h4 { font-weight: 500; }
@@ -102,18 +105,44 @@
 }
 
 @layer components {
-  .computational-grid {
-    background-image: linear-gradient(rgba(246,246,246,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(246,246,246,.035) 1px, transparent 1px);
-    background-size: 44px 44px;
-    mask-image: linear-gradient(to bottom, black, transparent 84%);
+  .section-kicker {
+    @apply mb-4 text-[11px] font-medium uppercase tracking-[0.18em] text-accent;
   }
 
-  .section-label { @apply font-mono text-[10px] tracking-[.2em] text-text-muted uppercase; }
-  .technical-link { @apply inline-flex items-center gap-2 font-mono text-[11px] tracking-[.12em] text-accent uppercase transition-colors hover:text-accent-hover; }
-}
+  .hero-glow {
+    position: absolute;
+    width: 44rem;
+    height: 44rem;
+    right: -18rem;
+    top: -20rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(255, 106, 0, 0.14), transparent 67%);
+    filter: blur(12px);
+    pointer-events: none;
+  }
 
-@media (hover: hover) and (pointer: fine) {
-  .has-technical-cursor, .has-technical-cursor a, .has-technical-cursor button, .has-technical-cursor input, .has-technical-cursor textarea, .has-technical-cursor select { cursor: none; }
-  .technical-cursor { position: fixed; z-index: 100; top: -5px; left: -5px; width: 10px; height: 10px; pointer-events: none; background: var(--color-text-primary); mix-blend-mode: difference; transition: width .16s ease, height .16s ease, margin .16s ease, border .16s ease, background-color .16s ease; }
-  .technical-cursor.is-interactive { width: 24px; height: 24px; margin: -7px 0 0 -7px; border: 1px solid var(--color-accent); background: transparent; }
+  .project-visual {
+    background-color: #0c0c0c;
+    background-image:
+      linear-gradient(rgba(255, 106, 0, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 106, 0, 0.12) 1px, transparent 1px),
+      radial-gradient(circle at 70% 35%, rgba(255, 106, 0, 0.22), transparent 35%);
+    background-size: 44px 44px, 44px 44px, auto;
+  }
+
+  .project-visual::before,
+  .project-visual::after {
+    content: '';
+    position: absolute;
+    border: 1px solid rgba(255, 106, 0, 0.48);
+    border-radius: 999px;
+    inset: 23% 19% 30% 34%;
+    transform: rotate(-13deg);
+  }
+
+  .project-visual::after {
+    inset: 31% 31% 20% 15%;
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: rotate(17deg);
+  }
 }

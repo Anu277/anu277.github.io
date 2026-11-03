@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { cn } from '@/lib/cn'
 import { useScrolled } from '@/hooks/useScrolled'
 import { NAV_LINKS } from '@/constants/nav'
@@ -26,11 +26,11 @@ export function Navbar() {
         >
           <NavLink
             to="/"
-            className="text-text-primary flex items-center gap-2 font-mono text-sm tracking-tight"
+            className="text-text-primary flex items-center gap-2 text-sm font-medium"
             onClick={() => setMenuOpen(false)}
           >
-            <span className="border border-border px-1.5 py-0.5 text-[11px] text-accent">AB</span>
-            anurag.bheemani
+            <span className="border border-border px-1.5 py-0.5 text-xs text-accent">AB</span>
+            Anurag Bheemani
           </NavLink>
 
           <ul className="hidden items-center gap-8 md:flex">
@@ -54,9 +54,13 @@ export function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden font-mono text-[10px] tracking-[.14em] text-text-secondary uppercase md:block">
-            AI Engineer
-          </div>
+          <NavLink
+            to="/contact"
+            className="group hidden items-center gap-2 border border-border px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-accent hover:text-accent lg:flex"
+          >
+            Let&apos;s talk
+            <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </NavLink>
 
           <button
             type="button"
@@ -77,8 +81,8 @@ export function Navbar() {
       {menuOpen && (
         <div className="border-border bg-background border-t md:hidden">
           <Container>
-            <p className="text-text-secondary pt-4 font-mono text-[10px] tracking-[.14em] uppercase">
-              AI Engineer
+            <p className="text-text-secondary pt-4 text-sm">
+              Machine Learning Engineer
             </p>
             <ul className="flex flex-col gap-1 py-4">
               {NAV_LINKS.map((link) => (
