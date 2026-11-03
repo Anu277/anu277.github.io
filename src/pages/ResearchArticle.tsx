@@ -27,14 +27,14 @@ export function ResearchArticle() {
           <div className="flex flex-col gap-6">
             <Link
               to={ROUTES.research}
-              className="text-text-muted hover:text-text-primary flex items-center gap-2 font-mono text-xs transition-colors"
+              className="text-text-muted hover:text-text-primary flex items-center gap-2 text-xs transition-colors"
             >
               <ArrowLeft className="size-3.5" strokeWidth={1.5} />
               Engineering notebook
             </Link>
 
             <div className="flex flex-col gap-3">
-              <div className="text-text-muted flex items-center gap-3 font-mono text-xs">
+              <div className="text-text-muted flex items-center gap-3 text-xs">
                 <span>{note.date}</span>
                 <span aria-hidden="true">&middot;</span>
                 <span>{note.readingTime} read</span>
@@ -47,7 +47,7 @@ export function ResearchArticle() {
             {note.relatedProjectSlug && (
               <Link
                 to={ROUTES.project(note.relatedProjectSlug)}
-                className="text-accent hover:text-accent-hover w-fit font-mono text-xs"
+                className="text-accent hover:text-accent-hover w-fit text-xs"
               >
                 Related project: {note.relatedProjectSlug} &rarr;
               </Link>

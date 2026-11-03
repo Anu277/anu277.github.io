@@ -24,7 +24,7 @@ export function ProfessionalWorkCard({ project }: { project: Project }) {
         />
       </div>
 
-      <p className="text-text-secondary pl-2 text-sm leading-relaxed">
+      <p className="text-text-secondary pl-2 text-base leading-relaxed">
         {project.summary}
       </p>
 
@@ -35,7 +35,7 @@ export function ProfessionalWorkCard({ project }: { project: Project }) {
             <span className="text-text-muted"> &middot; {project.location}</span>
           )}
         </span>
-        <span className="text-text-muted font-mono text-xs">
+        <span className="text-text-muted text-sm">
           {project.duration}
         </span>
       </div>

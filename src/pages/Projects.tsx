@@ -41,12 +41,12 @@ export function Projects() {
     return PROJECTS.filter((p) => p.categories.includes(activeFilter))
   }, [activeFilter])
 
-  const professionalWork = filteredProjects.filter(
-    (p) => p.origin === 'Company',
-  )
-  const personalProjects = filteredProjects.filter(
-    (p) => p.origin === 'Personal',
-  )
+  const professionalWork = filteredProjects
+    .filter((p) => p.origin === 'Company')
+    .sort((a, b) => b.difficulty - a.difficulty)
+  const personalProjects = filteredProjects
+    .filter((p) => p.origin === 'Personal')
+    .sort((a, b) => b.difficulty - a.difficulty)
 
   const professionalWorkRef = useRef<HTMLDivElement>(null)
   const personalProjectsRef = useRef<HTMLDivElement>(null)
@@ -163,7 +163,7 @@ function JumpButton({
       className="border-border text-text-secondary hover:border-accent hover:text-accent flex items-center gap-2 border px-3.5 py-2 text-sm transition-colors"
     >
       {label}
-      <span className="text-text-muted font-mono text-xs">{count}</span>
+      <span className="text-text-muted text-xs">{count}</span>
     </button>
   )
 }
@@ -183,7 +183,7 @@ function FilterButton({
       onClick={onClick}
       aria-pressed={active}
       className={cn(
-        'border px-3 py-1.5 font-mono text-xs transition-colors',
+        'border px-3 py-1.5 text-sm transition-colors',
         active
           ? 'border-accent text-accent'
           : 'border-border text-text-secondary hover:text-text-primary hover:border-text-muted',

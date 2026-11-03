@@ -29,7 +29,7 @@ const TOOLS_TOUCHED = [
 export function ToolsTouched() {
   return (
     <div className="flex flex-col gap-8">
-      <span className="text-text-muted font-mono text-[11px] tracking-wide uppercase">
+      <span className="text-text-muted text-[11px] tracking-wide uppercase">
         What I&apos;ve touched
       </span>
       <div className="flex flex-wrap gap-2.5">

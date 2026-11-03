@@ -52,7 +52,7 @@ export function Resume() {
                     </h3>
                     <p className="text-text-secondary text-sm">{exp.role}</p>
                     <p className="text-text-muted text-sm">{exp.location}</p>
-                    <p className="text-text-muted mt-1 font-mono text-xs">
+                    <p className="text-text-muted mt-1 text-xs">
                       {exp.period}
                     </p>
                   </div>
@@ -98,7 +98,7 @@ export function Resume() {
               <p className="text-text-secondary text-sm">
                 {RESUME_EDUCATION.degree}
               </p>
-              <p className="text-text-muted mt-1 font-mono text-xs">
+              <p className="text-text-muted mt-1 text-xs">
                 {RESUME_EDUCATION.period} &middot; {RESUME_EDUCATION.detail}
               </p>
             </div>

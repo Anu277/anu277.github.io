@@ -15,7 +15,7 @@ export function ResearchCard({ note }: { note: ResearchNote }) {
       />
 
       <div className="flex items-start justify-between gap-4 pl-2">
-        <span className="text-text-muted font-mono text-xs">{note.date}</span>
+        <span className="text-text-muted text-xs">{note.date}</span>
         <ArrowUpRight
           className="text-text-muted group-hover:text-accent size-4 shrink-0 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           strokeWidth={1.5}
@@ -30,7 +30,7 @@ export function ResearchCard({ note }: { note: ResearchNote }) {
         {note.summary}
       </p>
 
-      <span className="text-text-muted pl-2 font-mono text-xs">
+      <span className="text-text-muted pl-2 text-xs">
         {note.readingTime} read
       </span>
     </Link>

@@ -8,7 +8,7 @@ export function SectionHeader({ eyebrow, title, subtitle }: SectionHeaderProps) 
   return (
     <div className="flex flex-col gap-3">
       {eyebrow && (
-        <span className="text-accent font-mono text-xs tracking-wide uppercase">
+        <span className="text-accent text-sm font-medium uppercase">
           {eyebrow}
         </span>
       )}

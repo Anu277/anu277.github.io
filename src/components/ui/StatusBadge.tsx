@@ -12,7 +12,7 @@ export function StatusBadge({ status }: { status: ProjectStatus }) {
   return (
     <span
       className={cn(
-        'border px-2 py-0.5 font-mono text-xs',
+        'border px-2 py-0.5 text-xs',
         STATUS_STYLES[status],
       )}
     >

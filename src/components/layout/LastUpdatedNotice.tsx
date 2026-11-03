@@ -29,10 +29,10 @@ export function LastUpdatedNotice() {
           : 'pointer-events-none -translate-x-[calc(100%+2.5rem)] opacity-0',
       )}
     >
-      <span className="text-background/70 font-mono text-[10px] tracking-wide uppercase">
+      <span className="text-background/70 text-[10px] tracking-wide uppercase">
         Last updated
       </span>
-      <span className="text-background font-mono text-xs font-medium">
+      <span className="text-background text-xs font-medium">
         {LAST_UPDATED}
       </span>
     </div>

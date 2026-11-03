@@ -7,7 +7,7 @@ export function GithubRepoBadge({ repoUrl }: { repoUrl: string }) {
   if (loading || !stats) return null
 
   return (
-    <div className="text-text-muted flex items-center gap-4 font-mono text-xs">
+    <div className="text-text-muted flex items-center gap-4 text-xs">
       <span className="flex items-center gap-1.5">
         <Star className="size-3.5" strokeWidth={1.5} />
         {stats.stars}

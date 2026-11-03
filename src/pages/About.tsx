@@ -42,7 +42,7 @@ export function About() {
         <Container>
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
             <Reveal type="slide">
-              <span className="text-accent mb-5 flex items-center gap-2.5 font-mono text-xs tracking-wide uppercase">
+              <span className="text-accent mb-5 flex items-center gap-2.5 text-xs tracking-wide uppercase">
                 <span className="bg-accent h-px w-6" aria-hidden="true" />
                 About
               </span>
@@ -164,7 +164,7 @@ export function About() {
                   key={item.year}
                   className="flex flex-1 items-start gap-4 sm:flex-col sm:gap-3"
                 >
-                  <span className="text-accent font-mono text-sm">
+                  <span className="text-accent text-sm">
                     {item.year}
                   </span>
                   <span className="text-text-primary text-base font-medium">
@@ -181,7 +181,7 @@ export function About() {
                 </div>
               ))}
               <div className="flex flex-1 items-start gap-4 sm:flex-col sm:gap-3">
-                <span className="text-accent font-mono text-sm">Today</span>
+                <span className="text-accent text-sm">Today</span>
                 <span className="text-text-primary text-base font-medium">
                   Building production AI across computer vision, local LLMs,
                   retrieval, and AI infrastructure.

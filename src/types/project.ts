@@ -19,6 +19,8 @@ export interface Project {
   categories: ProjectCategory[]
   technologies: string[]
   status: ProjectStatus
+  /** Technical complexity, 1 (simple) to 10 (hardest) — drives sort order on the work page. */
+  difficulty: number
   duration: string
   origin: ProjectOrigin
   company?: string

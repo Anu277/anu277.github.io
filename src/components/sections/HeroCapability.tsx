@@ -67,7 +67,7 @@ export function HeroCapability() {
 
   return (
     <div ref={ref} className="flex flex-col">
-      <span className="text-text-muted mb-8 font-mono text-[11px] tracking-wide uppercase">
+      <span className="text-text-muted mb-8 text-[11px] tracking-wide uppercase">
         What I build
       </span>
 

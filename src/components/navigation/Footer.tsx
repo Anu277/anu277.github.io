@@ -13,7 +13,7 @@ export function Footer() {
     <footer className="border-border border-t">
       <Container className="flex flex-col gap-8 py-12 md:flex-row md:items-start md:justify-between">
         <div className="flex flex-col gap-4">
-          <span className="text-text-primary font-mono text-sm">
+          <span className="text-text-primary text-sm">
             anurag bheemani
           </span>
           <p className="text-text-muted max-w-xs text-sm">

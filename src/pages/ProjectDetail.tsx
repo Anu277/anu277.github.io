@@ -85,14 +85,14 @@ export function ProjectDetail() {
           <Reveal type="slide" className="flex flex-col gap-6">
             <Link
               to={ROUTES.projects}
-              className="text-text-muted hover:text-text-primary flex items-center gap-2 font-mono text-xs transition-colors"
+              className="text-text-muted hover:text-text-primary flex items-center gap-2 text-xs transition-colors"
             >
               <ArrowLeft className="size-3.5" strokeWidth={1.5} />
               All projects
             </Link>
 
             <div className="flex flex-col gap-3">
-              <span className="text-accent font-mono text-xs tracking-wide uppercase">
+              <span className="text-accent text-xs tracking-wide uppercase">
                 {project.categories.join(' / ')}
               </span>
               <h1 className="text-text-primary text-3xl leading-tight font-semibold tracking-tight text-balance md:text-4xl">
@@ -112,7 +112,7 @@ export function ProjectDetail() {
                   )}
                 </span>
               )}
-              <span className="font-mono">{project.duration}</span>
+              <span>{project.duration}</span>
               <StatusBadge status={project.status} />
             </div>
 
@@ -122,7 +122,7 @@ export function ProjectDetail() {
                   href={project.links.repo}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-accent hover:text-accent-hover flex w-fit items-center gap-1.5 font-mono text-xs"
+                  className="text-accent hover:text-accent-hover flex w-fit items-center gap-1.5 text-xs"
                 >
                   View repository
                   <ArrowUpRight className="size-3.5" strokeWidth={1.5} />
@@ -223,7 +223,7 @@ export function ProjectDetail() {
                   <div className="border-border grid grid-cols-1 gap-6 border-t pt-6 sm:grid-cols-2">
                     {caseStudy.metrics.map((metric) => (
                       <div key={metric.label} className="flex flex-col gap-1">
-                        <span className="text-accent font-mono text-2xl font-medium">
+                        <span className="text-accent text-2xl font-medium">
                           {metric.value}
                         </span>
                         <span className="text-text-primary text-sm font-medium">

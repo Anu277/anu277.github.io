@@ -10,7 +10,7 @@ export function NotFound() {
     <Section className="flex min-h-[calc(100svh-4rem)] items-center">
       <Container>
         <div className="flex flex-col gap-6">
-          <span className="text-accent font-mono text-sm">404</span>
+          <span className="text-accent text-sm">404</span>
           <h1 className="text-text-primary text-3xl font-medium md:text-4xl">
             This page doesn&apos;t exist.
           </h1>
