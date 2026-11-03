@@ -20,11 +20,11 @@ const WHAT_I_BUILD = [
 ]
 
 const CURRENTLY_EXPLORING = [
-  'Video foundation models',
-  'Local AI agents',
-  'Efficient inference',
-  'AI desktop applications',
-  'Retrieval systems',
+  'Agentic AI systems',
+  'On-device generative AI',
+  'Efficient LLM inference',
+  'LLM evaluation and reliability',
+  'AI-native developer tools',
 ]
 
 const TIMELINE = [
