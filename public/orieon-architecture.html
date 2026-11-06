@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" data-preset="classic">
+<html lang="en" data-theme="light" data-preset="editorial">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,9 +28,7 @@
         if (!theme) {
           try { theme = localStorage.getItem('archify-theme'); } catch (_) {}
         }
-        if (theme !== 'light' && theme !== 'dark') {
-          theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-        }
+        if (theme !== 'light' && theme !== 'dark') theme = 'light';
         document.documentElement.setAttribute('data-theme', theme);
       } catch (_) {}
     })();
@@ -5097,12 +5095,12 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <button id="btn-theme" type="button"
             title="Toggle theme (T)"
             aria-label="Toggle color theme"
-            aria-pressed="false">
+            aria-pressed="true">
       <span id="theme-icon" class="toolbar-icon" aria-hidden="true"></span>
-      <span id="theme-label">Dark</span>
+      <span id="theme-label">Light</span>
     </button>
     <div class="preset-wrap">
-      <button id="btn-preset" type="button"
+      <button id="btn-preset" type="button" data-preset-option="editorial"
               title="Choose visual style (S cycles)"
               aria-label="Choose visual style"
               aria-haspopup="menu"
@@ -5110,7 +5108,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
               aria-controls="preset-menu"
               aria-keyshortcuts="S">
         <span class="preset-control-mark" aria-hidden="true"></span>
-        <span id="preset-label">Style</span>
+        <span id="preset-label">Editorial</span>
         <span class="toolbar-icon toolbar-chevron" aria-hidden="true"></span>
       </button>
       <div class="preset-menu" id="preset-menu" role="menu" aria-label="Visual style">
@@ -5130,7 +5128,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <span class="preset-option-copy"><strong>Blueprint</strong><small>Engineering review</small></span>
           <span class="preset-option-check" aria-hidden="true"></span>
         </button>
-        <button class="preset-option" data-preset-value="editorial" type="button" role="menuitemradio" aria-checked="false" tabindex="-1">
+        <button class="preset-option" data-preset-value="editorial" type="button" role="menuitemradio" aria-checked="true" tabindex="-1">
           <span class="preset-option-swatch editorial" aria-hidden="true"></span>
           <span class="preset-option-copy"><strong>Editorial</strong><small>Publication and launch notes</small></span>
           <span class="preset-option-check" aria-hidden="true"></span>
@@ -5207,7 +5205,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <!-- Main Diagram -->
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / PLATE 04">
-      <svg viewBox="0 0 1144 1414" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="standard" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
+      <svg viewBox="0 0 1144 1414" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="editorial" data-quality-profile="standard" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
         <title id="archify-diagram-title">Orieon · Code-Backed Runtime &amp; Compiled Target Architecture</title>
         <desc id="archify-diagram-description">Derived from core C++/headers, CMake targets, Tauri coordinator code, React feature panels, and the Python backend</desc>
         <!-- Definitions -->
@@ -6301,7 +6299,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         if (fromUrl) return fromUrl;
         var saved = readStored();
         if (saved === 'light' || saved === 'dark') return saved;
-        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        return 'light';
       }
 
       function apply(theme) {
