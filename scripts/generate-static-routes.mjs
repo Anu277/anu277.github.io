@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
-const origin = 'https://anu277.github.io'
+const origin = 'https://anurawg.in'
 const routes = [
   ['about', 'About Anurag Bheemani | AI Engineer', 'AI Engineer building reliable products from research, models, and real-world deployment constraints.'],
   ['projects', 'AI Engineering Projects | Anurag Bheemani', 'Production AI systems and case studies across generative AI, local inference, computer vision, robotics, and edge deployment.'],

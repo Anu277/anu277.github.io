@@ -8,7 +8,7 @@ export function useDocumentMeta(title: string, description?: string) {
       : `${title} | AI Engineer`
     document.title = resolvedTitle
 
-    const canonicalUrl = new URL(window.location.pathname, 'https://anu277.github.io').href
+    const canonicalUrl = new URL(window.location.pathname, 'https://anurawg.in').href
     const canonicalElement = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
     const previousCanonical = canonicalElement?.href ?? null
     if (canonicalElement) canonicalElement.href = canonicalUrl
